@@ -1,0 +1,21 @@
+﻿<UserControl x:Class="OCC_New_Approach.SummaryViewUC"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d"
+             xmlns:local="clr-namespace:OCC_New_Approach">
+    
+    <UserControl.Resources>
+        <local:EnumtoStringConverter x:Key="EnumtoStringConverter" />
+    </UserControl.Resources>
+    <GroupBox Header="Summary" Padding="15" Margin="5" FontSize="12" FontFamily="Verdana" FontWeight="Bold" Width="700" >
+        <DataGrid AutoGenerateColumns="False" ItemsSource="{Binding rules}" CanUserAddRows="False" Width="Auto" Background="Transparent" RowBackground="Transparent" HorizontalAlignment="Center" CanUserResizeColumns="True" CanUserDeleteRows="False" CanUserResizeRows="False" CanUserSortColumns="False" Focusable="False" FontFamily="Verdana" FontSize="10" FontWeight="Medium" HorizontalGridLinesBrush="DarkGray">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Rule Num" Binding="{Binding Path=ruleDetails.ruleName}" />
+                <DataGridTextColumn Header="Rule Description" Binding="{Binding Path=ruleDetails.ruleDescription}" />
+                <DataGridTextColumn Header="Block Type" Binding="{Binding Path=ruleDetails.blockType, Converter={StaticResource EnumtoStringConverter}}" />
+            </DataGrid.Columns>
+        </DataGrid>
+    </GroupBox>
+</UserControl>

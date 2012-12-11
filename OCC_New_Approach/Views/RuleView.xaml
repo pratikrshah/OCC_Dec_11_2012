@@ -1,0 +1,47 @@
+﻿<Window x:Class="OCC_New_Approach.RuleView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:local="clr-namespace:OCC_New_Approach"
+        Title="RuleView"
+        WindowStyle="None"
+        AllowsTransparency="True"
+        Background="Transparent"
+        WindowStartupLocation="CenterScreen"
+        Width="Auto" MinWidth="650" Height="Auto" MinHeight="600">
+
+    <Window.Resources>
+        <local:BorderShadingTemplateSelector x:Key="BorderShadingTemplateSelector" />
+
+        <!--<DataTemplate DataType="{x:Type local:RuleViewModel}" x:Key="RuleTypeHardBlockDataTemplate">
+            <Views:RuleTypeHardBlockDataTemplate />
+        </DataTemplate>
+
+        <DataTemplate DataType="{x:Type local:RuleViewModel}" x:Key="RuleTypeSoftBlockDataTemplate">
+            <Views:RuleTypeSoftBlockDataTemplate />
+        </DataTemplate>-->
+    </Window.Resources>
+
+
+    <Border VerticalAlignment="Top" HorizontalAlignment="Left" BorderBrush="Silver" BorderThickness="2" CornerRadius="15">
+        <Border.Background>
+            <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.511,0.957">
+                <GradientStop Color="LightGray" Offset="0.55" />
+                <GradientStop Color="{Binding shadecolor}" Offset="1.3" />
+            </LinearGradientBrush>
+        </Border.Background>
+        <Grid Width="Auto" MinWidth="650" Height="Auto" MinHeight="500" Margin="3">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+
+            <StackPanel Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Top" >
+                <local:SummaryViewUC DataContext="{Binding}"/>
+            </StackPanel>
+            <StackPanel Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Top" >
+                <local:RuleDetails1View DataContext="{Binding}"/>
+            </StackPanel>
+        </Grid>
+    </Border>
+</Window>
